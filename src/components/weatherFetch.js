@@ -37,10 +37,12 @@ const WeatherFetch = () => {
           </div>
           <div className="date">{dateBuilder(new Date())}</div>
         </div>
-        <h1>Main Temperature: {Math.round(mainTemp)} &#176;C</h1>
-        <h1>Feels Like: {Math.round(feels_like)} &#176;C</h1>
-        <h1>Weather Parameter: {main}</h1>
-        <h1>Description: {description}</h1>
+        <div className="weather-box">
+          <div className="temperature">{Math.round(mainTemp)} &#176;C</div>
+          <div className="feelsLike">Feels Like: {Math.round(feels_like)} &#176;C</div>
+          <div className="main">{main}</div>
+          <div className="description">{description}</div>
+        </div>
         <img alt="" src={`https://openweathermap.org/img/wn/${iconID}@2x.png`} />
       </main>
     </div>
