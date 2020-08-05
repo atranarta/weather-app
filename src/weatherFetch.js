@@ -21,15 +21,26 @@ function WeatherFetch() {
         setMain(data.weather[0].main);
         setIconID(data.weather[0].icon);
       })
-  }, [])
+  })
   return (
-    <>
-      <h1>Main Temperature: {mainTemp} &#176;C</h1>
-      <h1>Feels Like: {feels_like} &#176;C</h1>
-      <h1>Weather Parameter: {main}</h1>
-      <h1>Description: {description}</h1>
-      <img src={`https://openweathermap.org/img/wn/${iconID}@2x.png`} />
-    </>
+    <div className="App cold">
+      <main>
+        <div className="search-box">
+          <input type="text" className="search-bar" placeholder="Enter the city..." />
+        </div>
+        <div className="location-box">
+          <div className="location">
+            Berlin
+          </div>
+          <div className="date"></div>
+        </div>
+        <h1>Main Temperature: {Math.round(mainTemp)} &#176;C</h1>
+        <h1>Feels Like: {Math.round(feels_like)} &#176;C</h1>
+        <h1>Weather Parameter: {main}</h1>
+        <h1>Description: {description}</h1>
+        <img alt="" src={`https://openweathermap.org/img/wn/${iconID}@2x.png`} />
+      </main>
+    </div>
   )
 };
 
