@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-function WeatherFetch() {
+import dateBuilder from "./dateBuilder"
+
+const WeatherFetch = () => {
   const key = process.env.REACT_APP_API_KEY;
   const [feels_like, setFeelsLike] = useState('');
   const [mainTemp, setMainTemp] = useState('');
@@ -22,6 +24,7 @@ function WeatherFetch() {
         setIconID(data.weather[0].icon);
       })
   })
+
   return (
     <div className="App cold">
       <main>
@@ -32,7 +35,7 @@ function WeatherFetch() {
           <div className="location">
             Berlin
           </div>
-          <div className="date"></div>
+          <div className="date">{dateBuilder(new Date())}</div>
         </div>
         <h1>Main Temperature: {Math.round(mainTemp)} &#176;C</h1>
         <h1>Feels Like: {Math.round(feels_like)} &#176;C</h1>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-import WeatherFetch from './weatherFetch.js';
+import WeatherFetch from './components/weatherFetch.js';
 
 function App() {
   return (
