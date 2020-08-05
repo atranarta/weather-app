@@ -42,8 +42,10 @@ const WeatherFetch = () => {
           <div className="feelsLike">Feels Like: {Math.round(feels_like)} &#176;C</div>
           <div className="main">{main}</div>
           <div className="description">{description}</div>
+          <div className="icon">
+            <img alt="" src={`https://openweathermap.org/img/wn/${iconID}@2x.png`} />
+          </div>
         </div>
-        <img alt="" src={`https://openweathermap.org/img/wn/${iconID}@2x.png`} />
       </main>
     </div>
   )
