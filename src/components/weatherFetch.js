@@ -22,7 +22,7 @@ const WeatherFetch = () => {
   }
 
   return (
-    <div className="App cold">
+    <div className={(typeof weather.main !== "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app cold') : 'app cold'}>
       <main>
         <div className="search-box">
           <input type="text"
