@@ -69,7 +69,7 @@ const WeatherFetch = () => {
 
 
   const backgroundChange = (weatherTypeID) => {
-    if (weatherTypeID === 800) return { backgroundImage: { sunny } };
+    if (weatherTypeID === 800) return { backgroundImage: `url(${sunny})` };
 
     switch (weatherTypeID.toString()[0]) {
       case '8':
