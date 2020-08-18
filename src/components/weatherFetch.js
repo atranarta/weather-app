@@ -7,7 +7,7 @@ import sunny from "./../images/sunny.jpg";
 import snow from "./../images/snow.jpg";
 import rain from "./../images/rain.jpg";
 import clouds from "./../images/clouds.jpg";
-import thunderstorm from "./../images/storm.jpg";
+import thunderstorm from "./../images/thunderstorm.jpg";
 
 const WeatherFetch = () => {
   const key = process.env.REACT_APP_API_KEY;
