@@ -69,7 +69,6 @@ const WeatherFetch = () => {
 
 
   const backgroundChange = (weatherTypeID) => {
-    debugger
     if (weatherTypeID === 800) return { backgroundImage: { sunny } };
 
     switch (weatherTypeID.toString()[0]) {
