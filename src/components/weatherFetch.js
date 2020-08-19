@@ -1,73 +1,21 @@
 import React, { useState } from "react";
 
 import dateBuilder from "./dateBuilder"
-
-import mist from "./../images/fog.jpg";
-import sunny from "./../images/sunny.jpg";
-import snow from "./../images/snow.jpg";
-import rain from "./../images/rain.jpg";
-import clouds from "./../images/clouds.jpg";
-import thunderstorm from "./../images/thunderstorm.jpg";
+import backgroundChange from "./backgroundChange"
+import getCurrentPositionWeather from "./getCurrentPositionWeather"
+import cityNameSearch from "./cityNameSearch"
 
 const WeatherFetch = () => {
-  const key = process.env.REACT_APP_API_KEY;
+  const API_key = process.env.REACT_APP_API_KEY;
 
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState(null);
 
-  const success = position => {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
+  getCurrentPositionWeather(weather, setWeather, API_key);
 
-    getWeather(latitude, longitude);
-  };
-
-  navigator.geolocation.getCurrentPosition(success);
-
-  const getWeather = (latitude, longitude) => {
-    if (latitude !== '' && longitude !== '') {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (weather === null) {
-            setWeather(data);
-          }
-        });
-    }
-  }
-
-
-  const search = evt => {
+  const onKeyPressHandler = evt => {
     if (evt.key === "Enter") {
-      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${key}&units=metric`)
-        .then((res) => res.json())
-        .then((data) => {
-
-          setWeather(data);
-          setQuery('');
-        })
-    }
-  }
-
-
-  const backgroundChange = (weatherTypeID) => {
-    if (weatherTypeID === 800) return { backgroundImage: `url(${sunny})` };
-
-    switch (weatherTypeID.toString()[0]) {
-      case '8':
-        return { backgroundImage: `url(${clouds})` };
-      case '5':
-        return { backgroundImage: `url(${rain})` };
-      case '3':
-        return { backgroundImage: `url(${rain})` };
-      case '2':
-        return { backgroundImage: `url(${thunderstorm})` };
-      case '6':
-        return { backgroundImage: `url(${snow})` };
-      case '7':
-        return { backgroundImage: `url(${mist})` };
-      default:
-        return { backgroundColor: '#4d87df' };
+      cityNameSearch(setWeather, setQuery, query, API_key);
     }
   }
 
@@ -82,7 +30,7 @@ const WeatherFetch = () => {
             placeholder="Enter the city..."
             onChange={e => setQuery(e.target.value)}
             value={query}
-            onKeyPress={search}
+            onKeyPress={onKeyPressHandler}
           />
         </div>
         {(weather !== null) ? (
