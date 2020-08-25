@@ -23,20 +23,19 @@ const WeatherFetch = () => {
     }
   }
 
-  console.log(weather)
+  // console.log(weather)
   const backgroundStyle = weather !== null ? backgroundChange(weather.weather[0].id) : {};
 
   const weatherBlock = (data) => {
+    if (isLoading) {
+      return (
+        <img className="loader" src={Loader} alt="loading" />
+      );
+    }
 
     if (data === null) {
       return (
         <p className="error">Something goes wrong. Retry later.</p>
-      );
-    }
-
-    if (isLoading) {
-      return (
-        <img className="loader" src={Loader} alt="loading" />
       );
     }
 
