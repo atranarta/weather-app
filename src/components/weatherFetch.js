@@ -23,7 +23,6 @@ const WeatherFetch = () => {
     }
   }
 
-  // console.log(weather)
   const backgroundStyle = weather !== null ? backgroundChange(weather.weather[0].id) : {};
 
   const weatherBlock = (data) => {
