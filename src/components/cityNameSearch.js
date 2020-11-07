@@ -1,4 +1,4 @@
-const API_key = process.env.REACT_APP_API_KEY;
+import { API_key } from '../constants';
 
 const cityNameSearch = (setWeather, setQuery, setLoading, query) => {
   setLoading(true);
