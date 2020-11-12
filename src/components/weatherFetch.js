@@ -21,7 +21,7 @@ const WeatherFetch = () => {
     };
 
     callFunction();
-  }, [query]);
+  }, []);
 
   const onKeyPressHandler = evt => {
     if (evt.key === "Enter") {
