@@ -26,7 +26,7 @@ const WeatherFetch = () => {
   const onKeyPressHandler = evt => {
     if (evt.key === "Enter") {
       cityNameSearch(setWeather, setQuery, setLoading, query);
-    }
+    };
   };
 
   const backgroundStyle = weather !== null ? backgroundChange(weather.weather[0].id) : {};
@@ -72,7 +72,7 @@ const WeatherFetch = () => {
                   {Math.round(weather.main.temp)} &#176;C
                 </div>
                 <div className="feelsLike">
-                  Feels Like: {Math.round(weather.main.feels_like)} &#176;C
+                  Feels Like: {Math.round(weather.main.feels_like)} &#176;
                 </div>
               </div>
               <div className="weather">

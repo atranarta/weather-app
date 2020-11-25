@@ -16,7 +16,7 @@ const getWeather = async (latitude, longitude) => {
   }
 }
 
-export const getCurrentPositionWeather = async () => {
+const getCurrentPositionWeather = async () => {
   const [latitude, longitude] = await navigatorCall();
   const weather = await getWeather(latitude, longitude);
   return weather;
